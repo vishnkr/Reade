@@ -4,9 +4,7 @@
 //
 //  Created by Vishwa Shankar on 7/14/19.
 //  Copyright © 2019 Vishwa Shankar. All rights reserved.
-//
 /*
-
 import Foundation
 import Firebase
 import SVProgressHUD
@@ -32,4 +30,5 @@ class LoginViewController: UIViewController{
             
         }
     }
-}*/
+}
+*/

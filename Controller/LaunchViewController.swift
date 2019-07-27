@@ -11,7 +11,7 @@ import SVProgressHUD
 import Firebase
 
 
-class LaunchViewController: UIViewController {
+class LaunchViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var signUpButton: UIButton!
@@ -20,12 +20,8 @@ class LaunchViewController: UIViewController {
     @IBOutlet var logInButton: UIButton!
     let logoImageContainerView = UIView()
     
-    let createAccountLabel: UILabel = {
-        let createLabel = UILabel()
-        createLabel.text = "Don't have an account?"
-        createLabel.translatesAutoresizingMaskIntoConstraints = false
-        return createLabel
-    }()
+    @IBOutlet var createAccountLabel: UILabel!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +38,9 @@ class LaunchViewController: UIViewController {
         view.addSubview(logoImageContainerView)
         
         setUpLayout()
+        
+        emailEntryField.delegate = self
+        passwordEntryField.delegate = self
         
     }
     
@@ -79,6 +78,9 @@ class LaunchViewController: UIViewController {
         logoImageContainerView.backgroundColor = .blue
         logoImageContainerView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         
+        createAccountLabel.text = "Don't have an account?"
+        createAccountLabel.translatesAutoresizingMaskIntoConstraints = false
+        
     }
     
     
@@ -90,13 +92,11 @@ class LaunchViewController: UIViewController {
         logoImageContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         logoImageContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        
         //logoImageContainerView.addSubview(logoImageView)
         
         
         
         //enable auto-layout
-        
         
         
         logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -134,6 +134,8 @@ class LaunchViewController: UIViewController {
             
             if error != nil {
                 print(error!)
+                SVProgressHUD.dismiss()
+                
             } else {
                 print("Log in successful!")
                 
@@ -142,9 +144,33 @@ class LaunchViewController: UIViewController {
                 self.performSegue(withIdentifier: "goToPreferences", sender: self)
                 
             }
-            
+                
         }
     }
+    
+    func hideKeyboard(){
+        emailEntryField.resignFirstResponder()
+        passwordEntryField.resignFirstResponder()
+    }
+    //UItextfieldDelegate methods
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        hideKeyboard()
+        return true
+    }
+    
+    
+    
+    
+    
+    
+    //Test viewcontrollers that are not ready
+    
 
+    @IBOutlet var testVCButton: UIButton!
+    @IBAction func testVC(_ sender: Any) {
+        //self.performSegue(withIdentifier: "gotoHomeScreen", sender: self)
+        print("done")
+    }
 }
 

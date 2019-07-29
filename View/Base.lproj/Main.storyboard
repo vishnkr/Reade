@@ -174,7 +174,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Get Started"/>
                                 <connections>
-                                    <action selector="signUpAction:" destination="90v-bB-dHK" eventType="touchUpInside" id="XH5-OI-XHr"/>
+                                    <action selector="signUpAction:" destination="90v-bB-dHK" eventType="touchUpInside" id="RDY-fV-HKk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfX-E5-w5X">
@@ -225,6 +225,7 @@
                         <outlet property="nameTextField" destination="Dx1-BI-XDD" id="cIm-Bi-vDk"/>
                         <outlet property="passwordLabel" destination="Jrt-EV-2Ud" id="uqq-we-4Bq"/>
                         <outlet property="passwordTextField" destination="Bhi-W6-m85" id="qVK-eO-zin"/>
+                        <outlet property="signUpButton" destination="Dd0-O2-rUX" id="xDh-fT-FG3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCx-vo-jUE" userLabel="First Responder" sceneMemberID="firstResponder"/>

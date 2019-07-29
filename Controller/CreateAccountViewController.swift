@@ -25,6 +25,7 @@ class CreateAccountViewController: UIViewController {
     
     @IBOutlet var closeButton: UIButton!
     
+    @IBOutlet var signUpButton: UIButton!
     
     @IBAction func close(){
         dismiss(animated: true, completion: nil)
@@ -37,6 +38,7 @@ class CreateAccountViewController: UIViewController {
                 print(error!)
             }
             else{
+                
                 self.dismiss(animated: true, completion: nil)
             }
         }

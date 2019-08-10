@@ -38,16 +38,22 @@ class ContentCell: UICollectionViewCell{
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
-    let cellId = "cellId"
+    let cellId = "newsId"
     let headerId = "headerId"
     let footerId = "footerId"
+    let news = [NewsModel(title: "a",content: "a",date: "12-july"),NewsModel(title: "abc",content: "asdfg",date: "a"),NewsModel(title: "a123",content: "b1234",date: "1967"),NewsModel(title: "test title",content: "test content",date: "oct-20")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = .white
-        collectionView?.register(ContentCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView?.register(UINib.init(nibName: "NewsCell", bundle: nil), forCellWithReuseIdentifier: "NewsCell")
+        
+        //collectionView?.register(ContentCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerId)
+ 
         
     }
     
@@ -55,12 +61,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return 4
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as! NewsCell
+        cell.configure(with: news[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 50)
+        return CGSize(width: view.frame.width, height: 100)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {

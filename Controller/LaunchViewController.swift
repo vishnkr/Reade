@@ -138,11 +138,8 @@ class LaunchViewController: UIViewController, UITextFieldDelegate {
                 
             } else {
                 print("Log in successful!")
-                
                 SVProgressHUD.dismiss()
-                
                 self.performSegue(withIdentifier: "goToPreferences", sender: self)
-                
             }
                 
         }

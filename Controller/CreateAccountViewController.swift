@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CreateAccountViewController: UIViewController {
+class CreateAccountViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var nameLabel: UILabel!
     
@@ -50,6 +50,9 @@ class CreateAccountViewController: UIViewController {
         setupSignUpUI()
         view.addSubview(closeButton)
         setupSignUpLayout()
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -67,6 +70,18 @@ class CreateAccountViewController: UIViewController {
         closeButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         closeButton.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    func hideKeyboard(){
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+    //UItextfieldDelegate methods
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        hideKeyboard()
+        return true
+    }
+    
     /*
     // MARK: - Navigation
 

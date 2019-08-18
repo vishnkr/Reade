@@ -99,6 +99,7 @@
                     <connections>
                         <outlet property="createAccountLabel" destination="lZa-fc-iBL" id="s9h-e2-4jJ"/>
                         <outlet property="emailEntryField" destination="T9Q-8j-fI5" id="0dN-lc-yz6"/>
+                        <outlet property="forgotPassword" destination="F0q-ov-tAB" id="ybS-Pg-w3W"/>
                         <outlet property="logInButton" destination="EI8-2F-W8F" id="qQG-Cm-WZi"/>
                         <outlet property="logoImageView" destination="r7F-aU-TGT" id="XdQ-qx-yTH"/>
                         <outlet property="passwordEntryField" destination="iqe-CC-bgT" id="gPL-EC-Y39"/>
@@ -236,7 +237,7 @@
         <scene sceneID="s38-VH-Jve">
             <objects>
                 <collectionViewController id="VDd-zw-fAs" customClass="HomeController" customModule="Reade" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="s2d-7s-gu1">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="s2d-7s-gu1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

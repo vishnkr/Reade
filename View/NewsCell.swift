@@ -8,12 +8,14 @@
 
 import UIKit
 
+
+
+
+class FooterCell: UICollectionViewCell{
+    
+}
+
 class NewsCell: UICollectionViewCell {
-    
-    
-    
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +32,8 @@ class NewsCell: UICollectionViewCell {
     let imageNewsCell: UIImageView = {
         let image = UIImageView()
         image.backgroundColor = .brown
+        image.layer.cornerRadius = 5
+        image.layer.masksToBounds = true
         return image
     }()
     

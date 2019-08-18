@@ -18,8 +18,9 @@ class LaunchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var emailEntryField: UITextField!
     @IBOutlet var passwordEntryField: UITextField!
     @IBOutlet var logInButton: UIButton!
-    let logoImageContainerView = UIView()
     
+    
+    @IBOutlet var forgotPassword: UILabel!
     @IBOutlet var createAccountLabel: UILabel!
    
     
@@ -35,7 +36,7 @@ class LaunchViewController: UIViewController, UITextFieldDelegate {
         view.addSubview(emailEntryField)
         view.addSubview(passwordEntryField)
         view.addSubview(signUpButton)
-        view.addSubview(logoImageContainerView)
+        view.addSubview(forgotPassword)
         
         setUpLayout()
         
@@ -73,25 +74,29 @@ class LaunchViewController: UIViewController, UITextFieldDelegate {
         passwordEntryField.translatesAutoresizingMaskIntoConstraints = false
         
         logInButton.setTitle("Log In", for: .normal)
+        logInButton.translatesAutoresizingMaskIntoConstraints = false
         
+        forgotPassword.translatesAutoresizingMaskIntoConstraints = false
         
-        logoImageContainerView.backgroundColor = .blue
-        logoImageContainerView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        //logoImageContainerView.backgroundColor = .blue
+        //logoImageContainerView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         
         createAccountLabel.text = "Don't have an account?"
         createAccountLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        testVCButton.translatesAutoresizingMaskIntoConstraints = false
         
     }
     
     
     private func setUpLayout(){
         
-       
+       /*
         logoImageContainerView.translatesAutoresizingMaskIntoConstraints = false
         logoImageContainerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         logoImageContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         logoImageContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
+        */
         //logoImageContainerView.addSubview(logoImageView)
         
         
@@ -100,29 +105,39 @@ class LaunchViewController: UIViewController, UITextFieldDelegate {
         
         
         logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        logoImageView.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        logoImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        
-        signUpButton.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 300).isActive = true
-        signUpButton.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 250).isActive = true
-        signUpButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        signUpButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-    
-        createAccountLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 300).isActive = true
-        createAccountLabel.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 40).isActive = true
-        createAccountLabel.rightAnchor.constraint(equalTo: signUpButton.leftAnchor).isActive = true
-        createAccountLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        logoImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        logoImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         
         emailEntryField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 20).isActive = true
-        
         emailEntryField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        emailEntryField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         
         passwordEntryField.topAnchor.constraint(equalTo: emailEntryField.bottomAnchor, constant: 20).isActive = true
+        passwordEntryField.leftAnchor.constraint(equalTo: emailEntryField.leftAnchor).isActive = true
+        passwordEntryField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         
-        passwordEntryField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        logInButton.topAnchor.constraint(equalTo: passwordEntryField.bottomAnchor, constant: 15).isActive = true
+        logInButton.leftAnchor.constraint(equalTo: passwordEntryField.leftAnchor).isActive = true
+        logInButton.rightAnchor.constraint(equalTo: passwordEntryField.rightAnchor).isActive = true
+        logInButton.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
         
-        //logInButton.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: <#T##CGFloat#>).isActive = true
+        forgotPassword.leftAnchor.constraint(equalTo: logoImageView.centerXAnchor).isActive = true
+        forgotPassword.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 15).isActive = true
+        
+        createAccountLabel.leftAnchor.constraint(equalTo: passwordEntryField.leftAnchor).isActive = true
+        createAccountLabel.rightAnchor.constraint(equalTo: forgotPassword.leftAnchor, constant: 40).isActive = true
+        createAccountLabel.topAnchor.constraint(equalTo: testVCButton.bottomAnchor, constant: 50).isActive = true
+        
+        signUpButton.leftAnchor.constraint(equalTo: createAccountLabel.rightAnchor).isActive = true
+        signUpButton.topAnchor.constraint(equalTo: createAccountLabel.topAnchor).isActive = true
+    
+        testVCButton.leftAnchor.constraint(equalTo: logInButton.leftAnchor).isActive = true
+        testVCButton.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 30).isActive = true
+        
+        
+        
+        
     }
     
 
